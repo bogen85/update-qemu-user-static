@@ -62,6 +62,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
   if ![0, 41].contains(&rc) {
     Err(format!("{:?}\nfailed with exit status: {}", &argv, rc).into())
   } else {
+    println!("Completed with rc = {}", rc);
     Ok(())
   }
 }
