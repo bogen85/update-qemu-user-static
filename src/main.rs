@@ -64,9 +64,9 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         .spawn()
         .map_err(|e| e.to_string())?;
     let exit_status = child.wait();
-
     let rc = exit_status.map_err(|e| e.to_string())?.code().unwrap_or(1);
-    if rc != 0 {
+
+	if ![0, 41].contains(&rc) {
         Err(format!("{:?}\nfailed with exit status: {}", &argv, rc).into())
     } else {
         Ok(())
